@@ -1048,7 +1048,7 @@ class format_grid extends core_courseformat\base {
             $newgnumsetions = $currentsettings['gnumsections'] - 1;
 
         }
-        $data = ['gnumsections' => $newgnumsections];
+        $data = ['gnumsections' => $newgnumsetions];
         $this->update_format_options($data);
     }
 
