@@ -424,6 +424,14 @@ class format_grid extends core_courseformat\base {
                     'default' => 0,
                     'type' => PARAM_INT,
                 ],
+                'sectiontitleingridbox' => [
+                    'default' => 0,
+                    'type' => PARAM_INT,
+                ],
+                'sectionbadgeingridbox' => [
+                    'default' => 0,
+                    'type' => PARAM_INT,
+                ],
                 'showcompletion' => [
                     'default' => 0,
                     'type' => PARAM_INT,
@@ -552,6 +560,38 @@ class format_grid extends core_courseformat\base {
                 'help_component' => 'format_grid',
                 'element_type' => 'select',
                 'element_attributes' => [$sectionzeroingridvalues],
+            ];
+
+            $sectiontitleingridboxvalues = $this->generate_default_entry(
+                'sectiontitleingridbox',
+                0,
+                [
+                    1 => new lang_string('no'),
+                    2 => new lang_string('yes'),
+                ],
+            );
+            $courseformatoptionsedit['sectiontitleingridbox'] = [
+                'label' => new lang_string('sectiontitleingridbox', 'format_grid'),
+                'help' => 'sectiontitleingridbox',
+                'help_component' => 'format_grid',
+                'element_type' => 'select',
+                'element_attributes' => [$sectiontitleingridboxvalues],
+            ];
+
+            $sectionbadgeingridboxvalues = $this->generate_default_entry(
+                'sectionbadgeingridbox',
+                0,
+                [
+                    1 => new lang_string('no'),
+                    2 => new lang_string('yes'),
+                ],
+            );
+            $courseformatoptionsedit['sectionbadgeingridbox'] = [
+                'label' => new lang_string('sectionbadgeingridbox', 'format_grid'),
+                'help' => 'sectionbadgeingridbox',
+                'help_component' => 'format_grid',
+                'element_type' => 'select',
+                'element_attributes' => [$sectionbadgeingridboxvalues],
             ];
 
             $showcompletionvalues = $this->generate_default_entry(
@@ -1001,11 +1041,12 @@ class format_grid extends core_courseformat\base {
      * @param bool $add Add a section or delete if false.
      */
     protected function change_gnumsections($add) {
-        $settings = $this->get_settings();
+        $currentsettings = $this->get_settings();
         if ($add) {
-            $newgnumsections = $settings['gnumsections'] + 1;
+            $newgnumsetions = $currentsettings['gnumsections'] + 1;
         } else {
-            $newgnumsections = $settings['gnumsections'] - 1;
+            $newgnumsetions = $currentsettings['gnumsections'] - 1;
+
         }
         $data = ['gnumsections' => $newgnumsections];
         $this->update_format_options($data);
