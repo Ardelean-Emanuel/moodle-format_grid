@@ -151,20 +151,16 @@
     width: 42px;
 }
 
-.format-grid .grid-completion.grid-completion-colour-low {
-    background-color: magenta;
-    color: white;
+.format-grid .card-header .section-title{
+   font-size: 1.1rem;
+   display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
 }
 
-.format-grid .grid-completion.grid-completion-colour-middle {
-    background-color: yellow;
-    color: black;
-}
-
-.format-grid .grid-completion.grid-completion-colour-high{
-    background-color: green;
-    color: white;
-}
 
 .format-grid .grid-completion.grid-completion-percentagequarter-1 {
     border-right-color: lightgreen;
